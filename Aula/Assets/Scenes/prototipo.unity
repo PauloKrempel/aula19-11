@@ -130,6 +130,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1406387511}
     m_Modifications:
+    - target: {fileID: 152711654, guid: 96b25e972e5199942b9b96c59a955556, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 152711654, guid: 96b25e972e5199942b9b96c59a955556, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 152711654, guid: 96b25e972e5199942b9b96c59a955556, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1726415199}
+    - target: {fileID: 152711654, guid: 96b25e972e5199942b9b96c59a955556, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 152711654, guid: 96b25e972e5199942b9b96c59a955556, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Add
+      objectReference: {fileID: 0}
+    - target: {fileID: 152711654, guid: 96b25e972e5199942b9b96c59a955556, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestSystem.Player.PlayerQuest, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 152711654, guid: 96b25e972e5199942b9b96c59a955556, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: QuestSystem.Quest.Quest, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 568724228, guid: 96b25e972e5199942b9b96c59a955556, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 3
@@ -527,10 +555,10 @@ MonoBehaviour:
   m_Horizontal: 1
   m_Vertical: 1
   m_MovementType: 1
-  m_Elasticity: 0.1
+  m_Elasticity: 0.01
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 20
   m_Viewport: {fileID: 927668247}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
@@ -670,6 +698,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927668246}
   m_CullTransparentMesh: 1
+--- !u!114 &1125080643 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 152711654, guid: 96b25e972e5199942b9b96c59a955556, type: 3}
+  m_PrefabInstance: {fileID: 512411349}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1131952535
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,6 +883,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1726415198}
   - component: {fileID: 1726415197}
+  - component: {fileID: 1726415199}
   m_Layer: 0
   m_Name: ==GM==
   m_TagString: Untagged
@@ -863,7 +903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a8d0d94bec0f549b315168c59c7340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quests:
+  QuestsList:
   - {fileID: 11400000, guid: 995bb5320b219c7408f1f54cf897c776, type: 2}
   - {fileID: 11400000, guid: 7e2061bf28873414ea8c04180117593c, type: 2}
   - {fileID: 11400000, guid: a3626edaa71e6b743a9714655cb1a326, type: 2}
@@ -873,6 +913,7 @@ MonoBehaviour:
   buttonsMission: []
   MissionBoardGo: {fileID: 856030264}
   QuestBoard: {fileID: 512411351}
+  acceptBtn: {fileID: 1125080643}
 --- !u!4 &1726415198
 Transform:
   m_ObjectHideFlags: 0
@@ -888,6 +929,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1726415199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726415196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c081cac7e92f954a8fb5edbaf141491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Experience: 0
+  Level: 0
+  ListQuests: []
 --- !u!1 &1791869183
 GameObject:
   m_ObjectHideFlags: 0

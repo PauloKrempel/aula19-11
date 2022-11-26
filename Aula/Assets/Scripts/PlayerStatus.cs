@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using QuestSystem.Quest;
 public class PlayerStatus : MonoBehaviour
 {
     public int health = 5;

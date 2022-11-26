@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using QuestSystem.Player;
 using UnityEngine;
 using TMPro;
+using QuestSystem.Quest;
+using UnityEngine.UI;
 
 public class QuestBoard : MonoBehaviour
 {
@@ -9,11 +12,13 @@ public class QuestBoard : MonoBehaviour
     public GameObject listMissions;
     public Quest quest;
     public PlayerStatus player;
+    private PlayerQuest _playerQuest;
     
     public TMP_Text titleText;
     public TMP_Text descriptionText;
     public TMP_Text experienceText;
     public TMP_Text goldText;
+    public Button btn;
 
     public void OpenQuest()
     {
@@ -33,12 +38,17 @@ public class QuestBoard : MonoBehaviour
         descriptionText.text = quest.description;
         experienceText.text = quest.experienceReward.ToString();
         goldText.text = quest.goldReward.ToString();
+        
+        
     }
     public void AcceptQuest()
     {
         questWindow.SetActive(false);
         quest.isActive = true;
         player.quest = quest;
-        player.Add(quest);
+        _playerQuest.Add(quest);
+        
     }
+
+    
 }
