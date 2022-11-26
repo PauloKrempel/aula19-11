@@ -13,6 +13,8 @@ public class QuestBoard : MonoBehaviour
     public Quest quest;
     public PlayerStatus player;
     private PlayerQuest _playerQuest;
+    public GameObject acceptButton;
+    public GameObject inProgress;
     
     public TMP_Text titleText;
     public TMP_Text descriptionText;
@@ -24,10 +26,8 @@ public class QuestBoard : MonoBehaviour
     {
         
         listMissions.SetActive(false);
-        //questWindow = GameObject.Find("QuestW");
         questWindow.SetActive(true);
-        //quest = questWindow.transform.Find("questSelect").GetComponent<Quest>();
-        
+
         titleText = questWindow.transform.Find("TitleQuest").GetComponent<TMP_Text>();
         descriptionText = questWindow.transform.Find("description").GetComponent<TMP_Text>();
         goldText = questWindow.transform.Find("ouro").GetComponent<TMP_Text>();
@@ -38,8 +38,18 @@ public class QuestBoard : MonoBehaviour
         descriptionText.text = quest.description;
         experienceText.text = quest.experienceReward.ToString();
         goldText.text = quest.goldReward.ToString();
-        
-        
+
+        PlayerQuest.Instance.currentQuest = quest;
+        if (quest.isActive)
+        {
+            acceptButton.SetActive(false);
+            inProgress.SetActive(true);
+        }
+        else
+        {
+            acceptButton.SetActive(true);
+            inProgress.SetActive(false);
+        }
     }
     public void AcceptQuest()
     {
@@ -47,7 +57,6 @@ public class QuestBoard : MonoBehaviour
         quest.isActive = true;
         player.quest = quest;
         _playerQuest.Add(quest);
-        
     }
 
     

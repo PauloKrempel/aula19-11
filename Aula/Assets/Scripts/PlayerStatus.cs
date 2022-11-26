@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using QuestSystem.Player;
 using UnityEngine;
 using QuestSystem.Quest;
 public class PlayerStatus : MonoBehaviour
@@ -10,6 +12,16 @@ public class PlayerStatus : MonoBehaviour
 
     public Quest quest;
     private List<Quest> quests = new List<Quest>();
+    
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            PlayerQuest.Instance.OpenListQuest();
+        }
+    }
+
     public void GoBattle()
     {
         health -= 1;

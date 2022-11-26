@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   level: 0
-  isActive: 0
+  isActive: 1
+  isCompleted: 0
   title: "Todo cuidado \xE9 pouco"
   description: Mate 10 inimigos da coroa.
   experienceReward: 250

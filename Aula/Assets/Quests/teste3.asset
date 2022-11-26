@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 1
   level: 0
   isActive: 0
+  isCompleted: 0
   title: Pela Guilda!
   description: Elimine 5 traidores da Guilda
   experienceReward: 150

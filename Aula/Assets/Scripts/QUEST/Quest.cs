@@ -13,6 +13,7 @@ namespace QuestSystem.Quest
         public int id;
         public int level;
         public bool isActive;
+        public bool isCompleted;
 
         public string title;
         public string description;

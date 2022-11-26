@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   level: 0
-  isActive: 0
+  isActive: 1
+  isCompleted: 0
   title: Flores para uma Dama
   description: "Colete tr\xEAs flores vermelhas"
   experienceReward: 50

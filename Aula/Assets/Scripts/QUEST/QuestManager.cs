@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using QuestSystem.Player;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -12,7 +13,7 @@ namespace QuestSystem.Manager
     {
         public static QuestManager Instance;
         public List<Quest> QuestsList = new List<Quest>();
-        
+        //private PlayerQuest _playerQuest;
         public Transform questContent;
         public GameObject mission;
         public QuestMissionController[] QuestMission;
@@ -20,12 +21,25 @@ namespace QuestSystem.Manager
         public GameObject MissionBoardGo;
         public GameObject QuestBoard;
         public Button acceptBtn;
-    
+        public GameObject acceptButton;
+        public GameObject inProgress;
+
         private void Awake()
         {
             Instance = this;
-            
         }
+
+        private void Start()
+        {
+            foreach (Quest questInList in QuestsList)
+            {
+                if (questInList.isActive && !questInList.isCompleted)
+                {
+                    PlayerQuest.Instance.Add(questInList);
+                }
+            }
+        }
+
         public void Add(Quest quest)
         {
             QuestsList.Add(quest);
@@ -40,12 +54,11 @@ namespace QuestSystem.Manager
                     var questName = obj.transform.Find("QuestTitle").GetComponent<TMP_Text>();
                 
                     questName.text = quest.title;
+                    
                 }
                 SetInventoryItems();
             }
             //verificar se a missão foi finalizada...
-            
-            
         }
         public void SetInventoryItems()
         {
@@ -59,6 +72,9 @@ namespace QuestSystem.Manager
                 buttonsMission[i].GetComponent<QuestBoard>().questWindow = QuestBoard;
                 buttonsMission[i].GetComponent<QuestBoard>().listMissions = MissionBoardGo;
                 buttonsMission[i].GetComponent<QuestBoard>().btn = acceptBtn;
+                buttonsMission[i].GetComponent<QuestBoard>().acceptButton = acceptButton;
+                buttonsMission[i].GetComponent<QuestBoard>().inProgress = inProgress;
+
             }
         }
     }
